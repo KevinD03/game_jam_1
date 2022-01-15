@@ -3715,9 +3715,10 @@ GameObject:
   m_Component:
   - component: {fileID: 427102}
   - component: {fileID: 9520112}
+  - component: {fileID: -3021972571283804470}
   m_Layer: 0
   m_Name: Blocky_Girl_Blue_Mobile
-  m_TagString: Untagged
+  m_TagString: people
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3757,6 +3758,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3021972571283804470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15a66d51d1c92f43a7a4eb7d1bbd397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &136600
 GameObject:
   m_ObjectHideFlags: 0
