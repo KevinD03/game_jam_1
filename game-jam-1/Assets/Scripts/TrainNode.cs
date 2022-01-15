@@ -19,7 +19,7 @@ public class TrainNode : MonoBehaviour
         
     }
 
-    void OnCollsionEnter( Collision collision )
+    void OnCollisionEnter( Collision collision )
     {
         if ( collision.collider.CompareTag( "Train" ) )
         {
