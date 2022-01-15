@@ -63,6 +63,6 @@ public class Player : MonoBehaviour
     {
         _score += score;
         Debug.Log(_score);
-        //_uiManager.updateScore(_score);
+        _uiManager.updateScore(_score);
     }
 }
