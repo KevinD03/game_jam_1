@@ -8,10 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _playerSpeed = 15f;
 
-
-    [SerializeField]
-    private float _parallel_track_distance;
-
     private float _targetz;
     private bool _movingUp;
 
@@ -89,7 +85,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("switch tracks upwards");
                 _movingUp = true;
-                _targetz = transform.position.z - _parallel_track_distance;
+                _targetz = transform.position.z - tn.vertDistance;
             }
         }
         else
@@ -97,7 +93,7 @@ public class Player : MonoBehaviour
             if (_lever.GetState() == LeverState.Right)
             {
                 _movingUp = false;
-                _targetz = transform.position.z + _parallel_track_distance;
+                _targetz = transform.position.z + tn.vertDistance;
                 Debug.Log("switch tracks downwards");
             }
         }
