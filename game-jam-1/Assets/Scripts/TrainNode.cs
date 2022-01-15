@@ -23,6 +23,7 @@ public class TrainNode : MonoBehaviour
         if ( collision.collider.CompareTag( "Train" ) )
         {
             // train is at this lever, will need to let the train/track controller know to make the turn
+            Debug.Log("COLLIDE WITH NODE");
             EventManager.Fire( "NodeHit", this.gameObject );
         }
     }

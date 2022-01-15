@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
+        //Debug.Log("Moving");
         transform.Translate(Vector3.forward * _playerSpeed * Time.deltaTime);
 
         if (_movingUp && _targetz > transform.position.z)
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
         {
             if (_lever.GetState() ==  LeverState.Left)
             {
+                Debug.Log("switch tracks upwards");
                 _movingUp = true;
                 _targetz = transform.position.z - _parallel_track_distance;
             }
@@ -96,6 +98,7 @@ public class Player : MonoBehaviour
             {
                 _movingUp = false;
                 _targetz = transform.position.z + _parallel_track_distance;
+                Debug.Log("switch tracks downwards");
             }
         }
     }
