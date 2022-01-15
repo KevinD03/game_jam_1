@@ -37,6 +37,9 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("UI manager is null");
         }
+
+        // need to change direction when we arrive at a split, so watch for that
+        EventManager.Sub( "NodeHit", HandleNodeCollision );
     }
 
     // Update is called once per frame
@@ -48,6 +51,11 @@ public class Player : MonoBehaviour
     void Move()
     {
         transform.Translate(Vector3.right * _playerSpeed * Time.deltaTime);
+    }
+
+    void HandleNodeCollision( GameObject node )
+    {
+        Debug.LogFormat( "Touched node: {0}", node.name );
     }
 
     public void addScore(int score)

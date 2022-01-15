@@ -22,6 +22,9 @@ public class Lever : MonoBehaviour
     public void ToggleState()
     {
         state = state == LeverState.Right ? LeverState.Left : LeverState.Right;
+        Debug.LogFormat( "Changed Lever {0} to {1}", this.gameObject.name,
+            state == LeverState.Left ? "Left" : "Right" );
+        
         EventManager.Fire( "LeverStateChange", this.gameObject );
     }
 
