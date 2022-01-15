@@ -15,32 +15,20 @@ public class peopleSpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnRoutine());
+        Vector3 spawnLocation1 = new Vector3(0, 0, 0);
+        GameObject newVictim1 = Instantiate(_peoplePrefabs[UnityEngine.Random.Range(0, _peoplePrefabs.Length - 1)], spawnLocation1, Quaternion.identity);
+        newVictim1.transform.parent = _peopleContainer.transform;
+
+
+
+
+
+        /*StartCoroutine(spawnRoutine());*/
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    IEnumerator spawnRoutine()
-    {
-        while (_gameEnd == false)
-        {
-            // need to change
-            Vector3 spawnLocation = new Vector3(0, 0, 0);
-               
-            // change num of people spawning
-            for (int i = 0; i < Random.Range(0, 5); i++)
-            {
-                GameObject newVictim = Instantiate(_peoplePrefabs[UnityEngine.Random.Range(0, _peoplePrefabs.Length - 1)], spawnLocation, Quaternion.identity);
-                newVictim.transform.parent = _peopleContainer.transform;
-            }
-            
-            //GameObject newEnemy = Instantiate(_enemyPrefabs, spawnLocation, Quaternion.identity);
-            
-            yield return new WaitForSeconds(5.0f);
-        }
     }
 }
