@@ -10,13 +10,16 @@ public enum LeverState
 
 public class Lever : MonoBehaviour
 {
-    
+
+    [SerializeField]
+    private UI_manager _uiManager;
+
     [SerializeField]
     LeverState state;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _uiManager = GameObject.Find("UI_manager").GetComponent<UI_manager>();
     }
 
     public void ToggleState()
@@ -24,7 +27,7 @@ public class Lever : MonoBehaviour
         state = state == LeverState.Right ? LeverState.Left : LeverState.Right;
         Debug.LogFormat( "Changed Lever {0} to {1}", this.gameObject.name,
             state == LeverState.Left ? "Left" : "Right" );
-        
+        _uiManager.updateLever(state == LeverState.Left);
         EventManager.Fire( "LeverStateChange", this.gameObject );
     }
 
