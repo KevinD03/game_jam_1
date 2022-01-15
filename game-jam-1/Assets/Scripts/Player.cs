@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
 
         // need to change direction when we arrive at a split, so watch for that
         EventManager.Sub( "NodeHit", HandleNodeCollision );
+        EventManager.Sub("Kill", () => { addScore(1); });
     }
 
     // Update is called once per frame
@@ -62,6 +63,6 @@ public class Player : MonoBehaviour
     {
         _score += score;
         Debug.Log(_score);
-        //_uiManager.updateScore(_score);
+        _uiManager.updateScore(_score);
     }
 }
