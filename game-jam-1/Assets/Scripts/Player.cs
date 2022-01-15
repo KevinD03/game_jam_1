@@ -8,8 +8,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _playerSpeed = 15f;
 
+
     [SerializeField]
-    private GameObject _peoplePrefab;
+    private float _parallel_track_distance;
+
+    private float _targetz;
+    private bool _movingUp;
+
+    [SerializeField]
+    private float _z_increment;
+
+    /*[SerializeField]
+    private GameObject _peoplePrefab;*/
 
     [SerializeField]
     private peopleSpawnManager _peopleSpawnManager;
@@ -20,13 +30,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _score;
 
+    [SerializeField]
+    private Lever _lever;
+
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(-20, 0, 0);
+        _targetz = transform.position.z;
         _peopleSpawnManager = GameObject.Find("peopleSpawnManager").GetComponent<peopleSpawnManager>();
         _uiManager = GameObject.Find("UI_manager").GetComponent<UI_manager>();
+        
 
         if (_peopleSpawnManager == null)
         {
@@ -51,12 +66,38 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(Vector3.right * _playerSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * _playerSpeed * Time.deltaTime);
+
+        if (_movingUp && _targetz > transform.position.z)
+        {
+            transform.Translate(new Vector3(0, 0, -_z_increment));
+        }
+        else if (!_movingUp && _targetz < transform.position.z)
+        {
+            transform.Translate(new Vector3(0, 0, _z_increment));
+        }
     }
 
     void HandleNodeCollision( GameObject node )
     {
         Debug.LogFormat( "Touched node: {0}", node.name );
+        TrainNode tn = node.GetComponent<TrainNode>();
+        if (tn.splitUpwards)
+        {
+            if (_lever.GetState() ==  LeverState.Left)
+            {
+                _movingUp = true;
+                _targetz = transform.position.z - _parallel_track_distance;
+            }
+        }
+        else
+        {
+            if (_lever.GetState() == LeverState.Right)
+            {
+                _movingUp = false;
+                _targetz = transform.position.z + _parallel_track_distance;
+            }
+        }
     }
 
     public void addScore(int score)
