@@ -10,6 +10,8 @@ public class peopleSpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject[] _peoplePrefabs;
 
+    private bool _gameEnd = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class peopleSpawnManager : MonoBehaviour
 
     IEnumerator spawnRoutine()
     {
-        while (true)
+        while (_gameEnd == false)
         {
             // need to change
             Vector3 spawnLocation = new Vector3(0, 0, 0);
