@@ -9,7 +9,7 @@ public class TrainNode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log( "hello" );
     }
 
     // Update is called once per frame
@@ -18,12 +18,11 @@ public class TrainNode : MonoBehaviour
         
     }
 
-    void OnCollsionEnter( Collision collision )
+    void OnCollisionEnter( Collision collision )
     {
         if ( collision.collider.CompareTag( "Train" ) )
         {
             // train is at this lever, will need to let the train/track controller know to make the turn
-            Debug.Log("COLLIDE WITH NODE");
             EventManager.Fire( "NodeHit", this.gameObject );
         }
     }
