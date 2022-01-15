@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(Vector3.right * _playerSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * _playerSpeed * Time.deltaTime);
     }
 
     void HandleNodeCollision( GameObject node )
