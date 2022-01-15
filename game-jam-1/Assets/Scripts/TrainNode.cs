@@ -5,48 +5,26 @@ using UnityEngine;
 public class TrainNode : MonoBehaviour
 {
     public bool splitUpwards = true;
+    public float vertDistance = 0;
 
-    private Player _train;
     // Start is called before the first frame update
     void Start()
     {
-        _train = GameObject.Find("Player").GetComponent<Player>();
+        Debug.Log( "hello" );
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    /*void OnCollsionEnter(Collider other)
+    void OnCollisionEnter( Collision collision )
     {
-        if (other.tag == "Train")
+        if ( collision.collider.CompareTag( "Train" ) )
         {
             // train is at this lever, will need to let the train/track controller know to make the turn
-            Debug.Log("COLLIDE WITH NODE");
-            EventManager.Fire("NodeHit", this.gameObject);
+            EventManager.Fire( "NodeHit", this.gameObject );
         }
-    }*/
-
-    /*private void OnTriggerEnter(Collider2D other)
-    {
-
-        // enemy collide with player
-        if (other.tag == "Train")
-        {
-            // get player script component
-
-            if (_player != null)
-            {
-                Debug.Log("works");
-            }
-        }
-
-        // enemy collide with projectile from player
-    }*/
-
-    public void trythis(){
-        Debug.Log("what");
     }
 }
