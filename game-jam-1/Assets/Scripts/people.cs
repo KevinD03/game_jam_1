@@ -15,4 +15,14 @@ public class people : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collision collision)
+    {
+
+        if (collision.collider.name == "people")
+        {
+            EventManager.Fire("Kill");
+        }
+    }
+
 }
