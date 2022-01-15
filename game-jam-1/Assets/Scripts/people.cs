@@ -16,10 +16,10 @@ public class people : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
 
-        if (collision.collider.name == "people")
+        if (other.tag == "people")
         {
             EventManager.Fire("Kill");
         }

@@ -8,7 +8,7 @@ public class peopleSpawnManager : MonoBehaviour
     private GameObject _peopleContainer;
 
     [SerializeField]
-    private GameObject _peoplePrefab;
+    private GameObject[] _peoplePrefabs;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class peopleSpawnManager : MonoBehaviour
             // change num of people spawning
             for (int i = 0; i < Random.Range(0, 5); i++)
             {
-                GameObject newVictim = Instantiate(_peoplePrefab, spawnLocation, Quaternion.identity);
+                GameObject newVictim = Instantiate(_peoplePrefabs[UnityEngine.Random.Range(0, _peoplePrefabs.Length - 1)], spawnLocation, Quaternion.identity);
                 newVictim.transform.parent = _peopleContainer.transform;
             }
             

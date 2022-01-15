@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _playerSpeed = 15f;
 
-    [SerializeField]
-    private GameObject _peoplePrefab;
+    /*[SerializeField]
+    private GameObject _peoplePrefab;*/
 
     [SerializeField]
     private peopleSpawnManager _peopleSpawnManager;
