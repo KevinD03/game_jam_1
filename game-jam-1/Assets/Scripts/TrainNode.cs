@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrainNode : MonoBehaviour
 {
     public bool splitUpwards = true;
+    public float vertDistance = 0;
 
     // Start is called before the first frame update
     void Start()
