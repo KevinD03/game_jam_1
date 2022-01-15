@@ -19,10 +19,11 @@ public class people : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "people")
+        if (other.tag == "Train")
         {
             EventManager.Fire("Kill");
         }
+        Destroy(this.gameObject);
     }
 
 }
